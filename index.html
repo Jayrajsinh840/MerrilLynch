@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body ng-app="Groceries" ng-controller="GroceriesController">
+	<header>
+		<h1>Grocery List</h1>
+	</header>
+	<div class="grocery-list">
+		<!-- Repeat over grocery list -->
+		<div ng-repeat="list in groceryList" class="item-container">
+			<div class="img-container">
+				<!-- Display images with matching category -->
+				<div ng-switch="list.category">
+					<div ng-switch-when="fruit">
+						<img src="images/fruits.svg" height="60" width="60" alt="fruits">
+					</div>
+					<div ng-switch-when="pasta">
+						<img src="images/pasta.svg" height="60" width="60" alt="pasta">
+					</div>
+					<div ng-switch-when="dessert">
+						<img src="images/dessert.svg" height="60" width="60" alt="desserts">
+					</div>
+					<div ng-switch-when="beverage">
+						<img src="images/beverages.svg" height="60" width="60" alt="beverages">
+					</div>
+					<div ng-switch-when="dairy">
+						<img src="images/dairy.svg" height="60" width="60" alt="dairy">
+					</div>
+				</div>
+			</div>
+			<div class="info-container">
+				<span class="label">Item : </span><span>{{list.item}}</span><br>
+				<span class="label">Brand : </span><span>{{list.brand}}</span><br>
+				<span class="label">Quantity : </span><span>{{list.qty}}</span><br>
+				<span class="label">Type : </span><span>{{list.type}}</span><br>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
